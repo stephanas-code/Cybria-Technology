@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" 
+    type="text/css" href="./vendors/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'tech/css/becomeadeveloper.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+   
+     <title>become a developer</title>
+</head>
+
+<body>
+    <header>
+             <a href="{% url 'index' %}"> 
+                 <i class="fa fa-home" aria-hidden="true"></i>       
+            </a>
+    </header>
+    
+  <div class="Register-form" id="becomeadeveloper" >  
+   {% if submitted %}
+                           <h3 class="btn btn-success"> Form Was Successfully Submitted </h3>
+                           <p> Our team will reply as soon as possible</p>
+                           
+                           
+     {% else %}
+                    <h1>Become a Developer</h1>           
+             <form name="sentMessage" novalidate="novalidate" method="post"> 
+                {% csrf_token %}
+                 
+                        <h5>First Name</h5>
+                                <input type="text" name="firstname" class="form-control bg-secondary border-0 py-4 px-3" id="subject" placeholder="Firstname" required="required" data-validation-required-message="Please enter firstname" />
+                               
+                         <h5>Last Name</h5>                   
+                                <input type="text" name="lastname" class="form-control bg-secondary border-0 py-4 px-3" id="subject" placeholder="Lastname" required="required" data-validation-required-message="Please enter lastname" />
+                                 <p class="help-block text-danger"></p>
+                         <h5>Email Address</h5>                   
+                               <input type="email" name="email" class="form-control bg-secondary border-0 py-4 px-3" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
+                                   
+                          <h5>Phone number</h5>                        
+                                <input type="text" name="phone" class="form-control bg-secondary border-0 py-4 px-3" id="subject" placeholder="Phone number" required="required" data-validation-required-message="Please enter number" />
+                               
+                          <h5>Preferred Skill</h5>                     
+                              <input type="text" name="skills" list="skills" placeholder="Preferred Skill">
+                               <datalist id="skills">
+                               <option value="Front-End Development, 6 months, ₦45,000">Front-End Development, 6 months, ₦45,000</option> 
+                               <option value="Back-End Development, 6 months, ₦50,000">Back-End Development, 6 months, ₦50,000</option> 
+                               <option value="Full-Stack Development, 12 months, ₦85,000">Full-Stack Development, 12 months, ₦85,000</option> 
+                               <option value="Computer Hardware Engineering, 9 months, ₦60,000">Computer Hardware Engineering, 9 months, ₦60,000</option> 
+                               <option value="Data Analysis, 8 months, ₦70,000">Data Analysis, 8 months, ₦70,000</option> 
+                              </datalist>
+                 <br>
+                                
+                            <button type="submit">Submit</button>         
+        </form>
+         {% endif %}
+                        
+    </div>
+    <script src="//code.tidio.co/m22yg6lqzso34xdtl18txi1qgsdusslo.js" async></script>
+               
+
+  
+    
+    
+</body>
+    
+</html>
+    
